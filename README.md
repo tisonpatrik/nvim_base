@@ -1,6 +1,6 @@
 have to install:
 
-**go**
+**Clang**
 
-delve
+ensure that you have installed 'clang' on your machine
 

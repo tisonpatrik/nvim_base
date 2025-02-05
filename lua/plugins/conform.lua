@@ -5,14 +5,20 @@ return {
 		conform.setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
-				go = { "gofumpt", "goimports-reviser", "golines" },
+				cc = { "clang-format" },
 			},
 			formatters = {
-				["goimports-reviser"] = {
-					prepend_args = { "-rm-unused" },
-				},
-				golines = {
-					prepend_args = { "--max-len=80" },
+				-- -- C & C++
+				["clang-format"] = {
+					prepend_args = {
+						"-style={ \
+                         IndentWidth: 4, \
+                         TabWidth: 4, \
+                         UseTab: Never, \
+                         AccessModifierOffset: 0, \
+                         IndentAccessModifiers: true, \
+                         PackConstructorInitializers: Never}",
+					},
 				},
 			},
 			format_on_save = {

@@ -10,25 +10,17 @@ return {
 			capabilities = capabilities,
 		})
 
-		lspconfig.gopls.setup({
+		lspconfig.clangd.setup({
 			capabilities = capabilities,
-			cmd = { "gopls" },
-			filetypes = { "go", "gomod", "gotmpl", "gowork" },
-			root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
-			settings = {
-				gopls = {
-					analyses = {
-						unusedparams = true,
-					},
-					completeUnimported = true,
-					usePlaceholders = true,
-					staticcheck = true,
-				},
-			},
 		})
+
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 		vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 		vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
 		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+		vim.keymap.set("n", "<leader>gdv", function()
+			vim.cmd("rightbelow vsplit")
+			vim.lsp.buf.definition()
+		end, { desc = "Go to definition in right vertical split" })
 	end,
 }

@@ -6,12 +6,9 @@ return {
 		config.setup({
 			ensure_installed = {
 				"lua",
-				"go",
-				"gomod",
-				"gosum",
-				"gotmpl",
-				"gowork",
-				"python",
+				"c",
+				"cmake",
+				"make",
 			},
 			highlight = { enable = true },
 			indent = { enable = true },
