@@ -9,6 +9,8 @@ return {
 				"c",
 				"vim",
 				"vimdoc",
+				"make",
+				"lua"
 			},
 			highlight = { enable = true },
 			indent = { enable = true },
