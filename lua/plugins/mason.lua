@@ -3,16 +3,37 @@ return {
 		"williamboman/mason.nvim",
 		config = function()
 			require("mason").setup({
-        automatic_installation = false,
-      })
+				automatic_installation = false,
+			})
 		end,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
+			local lspconfig = require("lspconfig")
+			-- List of servers to ignore during install
+			local ignore_install = {}
+
+			-- Helper function to find if value is in table.
+			local function table_contains(table, value)
+				for _, v in ipairs(table) do
+					if v == value then
+						return true
+					end
+				end
+				return false
+			end
+
+			-- Build a list of lsp servers to install minus the ignored list.
+			local all_servers = {}
+			for _, s in ipairs(lspconfig.servers) do
+				if not table_contains(ignore_install, s) then
+					table.insert(all_servers, s)
+				end
+			end
 			require("mason-lspconfig").setup({
-        automatic_installation = false,
-				ensure_installed = { "clangd" },
+				ensure_installed = all_servers,
+				automatic_installation = false,
 			})
 		end,
 	},
@@ -20,8 +41,8 @@ return {
 		"zapling/mason-conform.nvim",
 		config = function()
 			require("mason-conform").setup({
-      automatic_installation = false
-      })
+				automatic_installation = false,
+			})
 		end,
 	},
 	{
@@ -54,6 +75,7 @@ return {
 			end
 
 			require("mason-nvim-lint").setup({
+				ensure_installed = all_linters,
 				automatic_installation = false,
 			})
 		end,
