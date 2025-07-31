@@ -13,11 +13,12 @@ This is a minimal Neovim setup designed specifically for 42 School. It does not 
 
 2. **Install Nerd Fonts**, for Ubuntu run this commands:
 ```bash
-curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz \
-&& mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts \
+mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts \
+&& curl -LO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz \
 && tar -xf JetBrainsMono.tar.xz \
 && rm JetBrainsMono.tar.xz \
 && fc-cache -fv
+
 ```
 
 3. **Clone this repository**:
