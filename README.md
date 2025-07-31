@@ -10,8 +10,8 @@ This is a minimal Neovim setup designed specifically for 42 School. It does not 
 
 ## Installation
 1. **Install Neovim** if you haven’t already.
-2. **Install Nerd Fonts**:
-    For Ubuntu run this commands:
+
+2. **Install Nerd Fonts**, for Ubuntu run this commands:
 ```bash
 curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz \
 && mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts \
@@ -19,11 +19,30 @@ curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBra
 && rm JetBrainsMono.tar.xz \
 && fc-cache -fv
 ```
-2. **Clone this repository**:
+
+3. **Clone this repository**:
 ```bash
    git clone https://github.com/tisonpatrik/nvim_base ~/.config/nvim
 ```
-3. **Start Neovim** and everything will install automagically:
+
+4. **Install Clangd** if you does not have it. Run
+```bash
+clangd --version
+```
+and if is no response or error, run
+
+```bash
+./clangd_install.sh
+```
+and then restart shell
+
+5. **Install C Formatter 42**
+
+```bash
+pip3 install --user c-formatter-42
+```
+
+6. **Start Neovim** and everything will install automagically:
 
 ```bash
  nvim 
