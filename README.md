@@ -32,6 +32,7 @@ clangd --version
 and if is no response or error, run
 
 ```bash
+cd ~/.config.nvim \
 ./clangd_install.sh
 ```
 and then restart shell
