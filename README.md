@@ -26,25 +26,13 @@ mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts \
    git clone https://github.com/tisonpatrik/nvim_base ~/.config/nvim
 ```
 
-4. **Install Clangd** if you does not have it. Run
-```bash
-clangd --version
-```
-and if is no response or error, run
-
-```bash
-cd ~/.config.nvim \
-./clangd_install.sh
-```
-and then restart shell
-
-5. **Install C Formatter 42**
+4. **Install C Formatter 42**
 
 ```bash
 pip3 install --user c-formatter-42
 ```
 
-6. **Start Neovim** and everything will install automagically:
+5. **Start Neovim** and everything will install automagically:
 
 ```bash
  nvim 

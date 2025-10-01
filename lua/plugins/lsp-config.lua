@@ -4,28 +4,13 @@ return {
 	config = function()
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-		local lspconfig = require("lspconfig")
+		-- Configure clangd with custom settings
+		vim.lsp.config("clangd", {
+			capabilities = capabilities,
+		})
 
-		-- list of all servers configured.
-		lspconfig.servers = {
-			-- "lua_ls",
-			-- "gopls",
-			-- "hls",
-			-- "ols",
-			-- "pyright",
-		}
-
-		-- list of servers configured with default config.
-		local default_servers = {
-			"clangd"
-		}
-
-		-- lsps with default config
-		for _, lsp in ipairs(default_servers) do
-			lspconfig[lsp].setup({
-				capabilities = capabilities,
-			})
-		end
+		-- Enable the configured language server
+		vim.lsp.enable("clangd")
 
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 		vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
